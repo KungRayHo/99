@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 align=center>個人網頁</h2>
+    <hr>
+    <br><br>
+    <h1 align=center>
+        <img src="./img/img1.jpg" alt="" onclick="this.src=changeimg();changetext()" width="300px" align=center></h1>
+    <br><br>
+    <p id="show" align=center>你娘幹</p>
+    <script>
+        imgArray = new Array();
+        for (i = 0; i < 5; i++) {
+            imgArray[i] = new Image()
+            imgArray[i].src = "./img/img" + (i + 1) + ".jpg"
+        }
+
+        function changeimg() {
+            return (imgArray[Math.floor(Math.random() * 5)].src)
+        }
+        textArray = ["幹你娘", "你娘幹", "娘你幹", "你你幹", "娘娘幹"]
+
+        function changetext() {
+            // document.write("<p align=center>" + textArray[Math.floor(Math.random() * 5)] + "</p>")
+            document.getElementById("show").innerHTML = textArray[Math.floor(Math.random() * 5)]
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name=theForm align=center>
+        <br><br><br><br><br><br><br> 姓名 ：
+        <input type="text" value="蕭亞軒" name="_name">
+        <br><br>密碼 ：
+        <input type="password">
+        <br><br>性別 ( 單選 ) ：
+        <input type="radio" name="gender" value="男性"> 男性
+        <input type="radio" name="gender" value="女性">女性
+        <br><br>嗜好 ：
+        <input name="f1" type=checkbox value="book">閱讀
+        <input name="f2" type=checkbox value="sport" checked>運動
+        <input name="f3" type=checkbox value="music" checked>音樂
+        <input name="f4" type=checkbox value="sleep">睡覺
+        <input name="f5" type=checkbox value="talk">聊天
+        <br><br>住處 ：
+        <select name="live" id="">
+        <option selected>Please choose
+        <option>Taipei
+        <option>taicheng
+        <option>Tainan
+        </select>
+        <br><br>想說的話 ： <br><br>
+        <textarea name="tellmemore" id="" cols="80" rows="10"></textarea>
+        <input type="button" onclick="show()" value="輸出">
+    </form>
+    <script>
+        function show() {
+            document.write("<br>姓名：" + document.theForm._name.value)
+        }
+    </script>
+</body>
+
+</html>

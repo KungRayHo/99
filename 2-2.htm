@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <body>
+        <a href="javascript:check()">判斷奇數或是偶數</a>
+        <script>
+            function check() {
+                var n = prompt("請輸入一個整數")
+                if (isNaN(parseInt(n))) {
+                    alert("請輸入數字")
+                } else {
+                    n = eval(n)
+                    if (n % 2 == 0) {
+                        alert("此數是偶數")
+                    } else {
+                        alert("此數是奇數")
+                    }
+                }
+            }
+        </script>
+    </body>
+
+</html>

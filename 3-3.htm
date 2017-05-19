@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 align=center>英文日期至中文日期的轉換</h2>
+    <form action="">
+        <br>
+        <br>請輸入西元時間:
+        <br><br> Year：
+        <input type="text" size=4 name="x1"> Month：<input type="text" size=4 name="x2"> Day：<input type="text" size=4 name="x3"> Hour：<input type="text" size=4 name="x4"> Minute：<input type="text" size=4 name="x5"> Second： <input type="text" size=4 name="x6">
+        <br><br>
+        <input type="button" value="轉換" onclick="transform(this.form)">
+        <br><br>轉換後：
+        <br><br>
+        <textarea name="show" id="" cols="80" rows="10"></textarea>
+
+    </form>
+    <script>
+        function transform(form) {
+            var x = new Array();
+            for (i = 1; i <= 6; i++) {
+                x.push(eval("form.x" + i + ".value"))
+                c = check(x[i - 1])
+                if (!c) {
+                    again()
+                    return
+                }
+            }
+
+            if (x[0] >= 1911) {
+                x[0] = "現在是民國" + (x[0] - 1911) + "年"
+            } else {
+                x[0] = "現在是民國前" + (-x[0] + 1911) + "年"
+            }
+            if (x[1] <= 12) {
+                x[1] = x[1] + "月"
+                if (x[1] in [1, 3, 5, 7, 8, 10, 12]) {
+                    if (x[2] > 31) {
+                        again()
+                        return
+                    } else {
+                        x[2] = x[2] + "日"
+                    }
+                }
+                if (x[1] in [4, 6, 9, 11]) {
+                    if (x[2] > 30) {
+                        again()
+                        return
+                    } else {
+                        x[2] = x[2] + "日"
+                    }
+                }
+            } else {
+                return
+            }
+            if (x[3] <= 24) {
+                if (x[3] <= 12) {
+                    x[3] = "上午" + x[3] + "時"
+                } else {
+                    x[3] = "下午" + (x[3] - 12) + "時"
+                }
+            } else {
+                again()
+                return
+            }
+            for (i = 4; i <= 5; i++) {
+                if (x[i] < 60) {
+                    x[i] = x[i]
+                } else {
+                    again()
+                    return
+                }
+            }
+            form.show.value = x[0] + x[1] + x[2] + x[3] + x[4] + "分" + x[5] + "秒"
+        }
+
+
+        function check(x) {
+            if (isNaN(parseInt(x))) {
+                return false
+            }
+            if ((parseInt(x) != x) || (x <= 0)) {
+                return false
+            } else {
+                return true
+            }
+        }
+
+        function again() {
+            alert("格式有錯，請重新輸入")
+        }
+    </script>
+</body>
+
+</html>

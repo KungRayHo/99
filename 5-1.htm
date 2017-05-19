@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<a href="javascript:cal()">計算園面積</a>
+
+<body>
+    <script>
+        function cal() {
+            var r = prompt("請輸入元的半徑")
+            circleArea(r)
+
+            function circleArea(rr) {
+                document.writeln("面積：" + rr * rr * Math.PI)
+                document.writeln("面積：" + 2 * rr * Math.PI)
+            }
+        }
+    </script>
+</body>
+
+</html>

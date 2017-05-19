@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 align=center>計算ax<sup>2</sup>+bx+c=0</h2>
+    <form action="" align=center>
+        a= <input type="text" name="_a">
+        <br> <br> b= <input type="text" name="_b">
+        <br> <br>c= <input type="text" name="_c">
+        <br> <br><input type="button" name="cal" value="calculate" onClick="call(this.form)">
+        <br> <br>x1= <input type="text" name="_x1">
+        <br> <br>x2= <input type="text" name="_x2">
+    </form>
+    <script>
+        function call(form) {
+            a = form._a.value
+            b = form._b.value
+            c = form._c.value
+            x1 = (-b + (b ** 2 + 4 * a * c) ** (1 / 2)) / (2 * a)
+            x2 = (-b - (b ** 2 + 4 * a * c) ** (1 / 2)) / (2 * a)
+            form._x1.value = x1
+            form._x2.value = x2
+
+        }
+    </script>
+
+</body>
+
+</html>

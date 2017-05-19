@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.write("<center>")
+        document.write("<br>")
+        document.write("<br>")
+        document.write("<br>")
+        document.write("<table border=1>")
+        document.writeln("<tr><th>n<th>f(n)")
+        var n1 = 0;
+        var n2 = 1;
+        var n3;
+        document.writeln("<tr><td>1<td>" + n1)
+        document.writeln("<tr><td>2<td>" + n2)
+        for (i = 1; i <= 28; i++) {
+            n3 = n1 + n2;
+            document.writeln("<tr><td>" + (i + 2) + "<td>" + n3)
+            n1 = n2;
+            n2 = n3;
+        }
+        document.write("</table>")
+        document.write("</center>")
+    </script>
+</body>
+
+</html>

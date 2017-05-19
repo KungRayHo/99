@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 align="center">利用 Cookie 記錄客戶拜訪網頁次數</h2>
+    <hr>
+
+    <script src="cookieUtility.js"></script>
+    <script>
+        duration = 365; // 資料將被保留一年
+        today = new Date();
+        expireDate = new Date();
+        expireDate.setTime(today.getTime() + 1000 * 60 * 60 * 24 * duration); // Set up expire date
+        cookieName = 'VisitCount';
+        count = getCookie(cookieName);
+        if (count == null)
+            count = 0;
+        count++;
+        if (count == 1)
+            message = "謝謝您初次光臨寒舍！";
+        else if (count == 2)
+            message = "謝謝您再度光臨！";
+        else
+            message = "您已經光臨本站 " + count + " 次了！"
+        setCookie(cookieName, count, expireDate);
+        document.write(message);
+        document.write("（您在本頁所留下的資料記錄在名為「" + cookieName + "」的小餅乾，將會被保留" + duration + "天。）");
+    </script>謝謝您再度光臨！（您在本頁所留下的資料記錄在名為「VisitCount」的小餅乾，將會被保留365天。）
+    <p>點選 <input type="button" value="歸零" onclick="delCookie('VisitCount'); history.go(0)"> 來使計數資料歸零。<br> 點選 <input type="button" value="重載" onclick="history.go(0)"> 來增加記數資料。
+
+    </p>
+    <hr>
+    <h3 align="center">本頁小餅乾列表</h3>
+    <script src="listCookie.js"></script>
+    <script>
+        listCookie();
+    </script>
+    <p><b>原始 Cookie 字串：</b></p>
+    <center>
+        <font color="green">sdfsdfsd=sdfdsf; sdfdsf=sdfdsf; ddd=ddd; fff%20%20=sdfsd%20%20sdfsdf; VisitCount=2; ASPSESSIONIDQQSSTRAC=BKNDCOJCEPCNHJECPKOOPECC</font>
+    </center>
+    <p><b>拆解後的 name/value：</b>
+        <table border="1" align="center">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Value
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="red">sdfsdfsd</font>
+                    </td>
+                    <td>
+                        <font color="green">sdfdsf</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="red"> sdfdsf</font>
+                    </td>
+                    <td>
+                        <font color="green">sdfdsf</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="red"> ddd</font>
+                    </td>
+                    <td>
+                        <font color="green">ddd</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="red"> fff </font>
+                    </td>
+                    <td>
+                        <font color="green">sdfsd sdfsdf</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="red"> VisitCount</font>
+                    </td>
+                    <td>
+                        <font color="green">2</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="red"> ASPSESSIONIDQQSSTRAC</font>
+                    </td>
+                    <td>
+                        <font color="green">BKNDCOJCEPCNHJECPKOOPECC</font>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </p>
+    <hr>
+</body>
+
+</html>

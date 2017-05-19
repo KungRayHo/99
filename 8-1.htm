@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+
+<body>
+
+    <body onBeforeUnload="openNewWin()">
+
+        <script>
+            Width = 30
+
+
+
+            function openNewWin() {
+                // 如果視窗名稱固定，就無法一再開新視窗。
+                // 因此使用亂數來當視窗名稱...所以關一個就會再生一個新的出來
+                winName = Math.floor(Math.random() * 10000);
+                window.open('8-1.htm', winName, 'location=1,toolbar=1,menubar=1,status=1');
+            }
+            $("#imgg").on("unload", function() {
+                $(this).css("width", "+=200");
+            })
+            var pos = 0
+        </script>
+
+        <h2 align=center>打不死的蟑螂</h2>
+        <hr> 你關不掉我~XD
+        <img src="./img/img1.jpg" alt="" id="imgg" style="width:100px">
+        <script>
+            var imgage = document.getElementById("imgg")
+
+            function move() {
+                var n = Math.floor(Math.random() * 100) - Math.floor(Math.random() * 100)
+                var m = Math.floor(Math.random() * 100) - Math.floor(Math.random() * 100)
+                imgage.style.top = pos + n + 'px'
+                imgage.style.left = pos + m + 'px'
+            }
+            setInterval("move()", 1000)
+        </script>
+    </body>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h3>點我換照片</h3>
+        <hr>
+        <br>
+        <img src="./img/img1.jpg" name="img" alt="" style="height:300px" onclick="changeImg();changeText(); t = 5;
+            document.getElementById('time').innerHTML = t
+            clearInterval(timmer);
+            clearInterval(tim);
+            var timmer = setInterval(' ttime() ', 1000);
+            var tim = setInterval('changeImg();changeText();', 5000);">
+        <p id="time" style="color:black"></p>
+        <br>
+        <p>照片位置: <input id="show" type="text" size="200" value="file:///C:/Users/alixh/Google%20%E9%9B%B2%E7%AB%AF%E7%A1%AC%E7%A2%9F/%E7%A2%A9%E4%B8%80/%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/js/exercise/img/img1.jpg"></p>
+    </center>
+    <script>
+        imgArray = new Array();
+        for (i = 0; i < 5; i++) {
+            imgArray[i] = new Image()
+            imgArray[i].src = "./img/img" + (i + 1) + ".jpg"
+        }
+        var i = 1
+        var time = 0
+
+        function changeImg() {
+
+            if (i == 5) {
+                i = 0
+            }
+            document.img.src = imgArray[i].src
+            return
+            i++
+            // setTimeout("ttime()", 1000);
+        }
+
+
+        function changeText() {
+            if (i == 5) {
+                i = 0
+            }
+            document.getElementById("show").value = imgArray[i].src
+            i++
+        }
+        var tim = setInterval("changeImg();changeText();", 5000);
+        var timmer = setInterval("ttime()", 1000);
+        var t = 5
+
+        function ttime() {
+            document.getElementById('time').innerHTML = t
+            t--
+            if (t <= 0) {
+                t = 5
+            }
+        }
+
+        // function clear() {
+        //     t = 5;
+        //     document.getElementById('time').innerHTML = t
+        //     clearInterval(timmer)
+        //     timmer
+        // }
+    </script>
+</body>
+
+</html>

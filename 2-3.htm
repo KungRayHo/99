@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="javascript:health()">你有沒有符合標準</a>
+    <script>
+        function health() {
+            var weight = prompt("請輸入你的體重")
+            var height = prompt("請輸入你的身高")
+            if ((eval(height - 110)) > eval(weight)) {
+                alert("你的標準體重:" + (height - 110) + ",你的實際體重:" + weight + ",您可以再增胖" + (height - 110 - weight) + "公斤喔！")
+            }
+            if ((eval(height - 110)) < eval(weight)) {
+                alert("你的標準體重:" + (height - 110) + ",你的實際體重:" + weight + ",您已經超重" + (weight - height + 110) + "公斤喔！")
+            } else {
+                alert("你的標準體重:" + (height - 110) + ",你的實際體重:" + weight + ",您真是標準魔鬼身材啊！")
+            }
+        }
+    </script>
+</body>
+
+</html>

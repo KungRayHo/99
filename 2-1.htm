@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="javascript:check()">檢查正整數</a>
+    <script>
+        function check() {
+            var n = prompt("請輸入正整數")
+            if (isNaN(parseInt(n))) {
+                alert("請輸入數字")
+            } else {
+                if ((eval(n) == parseInt(n)) && (n > 0)) {
+                    alert("此數是正整數")
+                } else {
+                    alert("此數不是正整數")
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./5-5.js"></script>
+    <script>
+        today = new Date()
+
+        function time(k, nx) {
+            if (k == 1) {
+                today = new Date()
+                a = today.getTime()
+                s = fib(nx)
+                today = new Date()
+                b = today.getTime()
+                arr = new Array()
+                arr.push(b - a)
+                arr.push(s)
+                return (arr)
+            }
+            if (k == 0) {
+                today = new Date()
+                a = today.getTime()
+                s = fibf(nx)
+                today = new Date()
+                b = today.getTime()
+                arr = new Array()
+                arr.push(b - a)
+                arr.push(s)
+                return (arr)
+            }
+        }
+        document.write("<table border='1'>")
+        document.writeln("<tr><th><th>所需時間<th>值")
+        for (i = 20; i <= 30; i++) {
+            var nn = i
+            document.writeln("<tr><td>" + i + "<td>" + time(1, nn)[0] + "<td>" + time(1, nn)[1])
+        }
+        document.write("</table>")
+        document.write("<table border='1'>")
+        document.writeln("<tr><th><th>所需時間<th>值")
+        for (i = 20; i <= 30; i++) {
+            var nn = i
+            document.writeln("<tr><td>" + i + "<td>" + time(0, nn)[0] + "<td>" + time(0, nn)[1])
+        }
+        document.write("</table>")
+    </script>
+
+</body>
+
+</html>

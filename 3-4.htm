@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" align=center name="">
+        <br><br> 西元 <select name="_year" id="">  
+            <script>
+            today=new Date()  
+            for (i=1000;i<2020;i++){
+                if (i!=(today.getYear()+1900)){
+            document.writeln("<option>"+i)}
+            else{
+                document.writeln("<option selected>"+(today.getYear()+1900))
+            }
+            }
+            </script>
+        </select>年
+
+        <select name="_month" id="">
+            <script>
+            today=new Date()  
+            for (i=1;i<=12;i++){
+                if (i!=(today.getMonth()+1)){
+            document.writeln("<option>"+i)}
+            else{
+                document.writeln("<option selected>"+(today.getMonth()+1))
+            }
+            }
+            </script>
+            </select>月
+
+        <select name="_date" id="">
+            <script>
+            today=new Date()  
+            for (i=1;i<=31;i++){
+                if (i!=(today.getDate())){
+            document.writeln("<option>"+i)}
+            else{
+                document.writeln("<option selected>"+(today.getDate()))
+            }
+            }
+            </script>
+            </select>日
+        <br><br>
+        <input type="button" value="轉換" onclick="time(this.form)">
+    </form>
+    <script>
+        function time(form) {
+            var d = new Date(form._year.selectedIndex + 1000, form._month.selectedIndex, form._date.selectedIndex + 1);
+            alert(d.getDay())
+        }
+    </script>
+</body>
+
+</html>
